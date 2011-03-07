@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: cloud-ctrl.aux
+The style file: IEEEtran.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: emr.bib
+Database file #2: drm.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty author in Emr:doi:10.1056/NEJMc081118
+
+Done.
+You've used 35 entries,
+            4039 wiz_defined-function locations,
+            1043 strings with 13204 characters,
+and the built_in function-call counts, 22371 in all, are:
+= -- 1796
+> -- 416
+< -- 153
++ -- 235
+- -- 67
+* -- 1040
+:= -- 3404
+add.period$ -- 73
+call.type$ -- 35
+change.case$ -- 40
+chr.to.int$ -- 357
+cite$ -- 36
+duplicate$ -- 1720
+empty$ -- 2009
+format.name$ -- 89
+if$ -- 5164
+int.to.chr$ -- 0
+int.to.str$ -- 35
+missing$ -- 319
+newline$ -- 132
+num.names$ -- 28
+pop$ -- 761
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1724
+stack$ -- 0
+substring$ -- 877
+swap$ -- 1313
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 35
+warning$ -- 1
+while$ -- 87
+width$ -- 37
+write$ -- 346
+(There was 1 warning)

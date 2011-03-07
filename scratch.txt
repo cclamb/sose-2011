@@ -1,0 +1,29 @@
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+\author{\IEEEauthorblockN{Christopher C. Lamb}
+\IEEEauthorblockA{University of New Mexico\\
+Dept. of Electrical and Computer Engineering\\
+Albuquerque, NM 87131-0001 \\
+cclamb@ece.unm.edu}
+\\
+\IEEEauthorblockN{Pramod Jamkhedkar}
+\IEEEauthorblockA{University of New Mexico\\
+Dept. of Electrical and Computer Engineering\\
+Albuquerque, NM 87131-0001 \\
+pramod54@ece.unm.edu}
+\and
+\IEEEauthorblockN{Dr. Greg Heileman}
+\IEEEauthorblockA{University of New Mexico\\
+Dept. of Electrical and Computer Engineering\\
+Albuquerque, NM 87131-0001 \\
+hieleman@ece.unm.edu}
+\\
+\IEEEauthorblockN{Dr. Greg Heileman}
+\IEEEauthorblockA{University of New Mexico\\
+Dept. of Electrical and Computer Engineering\\
+Albuquerque, NM 87131-0001 \\
+ravik@ece.unm.edu}
+}
+
+

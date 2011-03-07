@@ -1,0 +1,440 @@
+
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+
+\ifCLASSINFOpdf
+  \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{./images/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  \graphicspath{{./images/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  \DeclareGraphicsExtensions{.eps}
+\fi
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Usage Management of Personal Medical Records}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+\author{\IEEEauthorblockN{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman, Ravi K. Kadaboina}
+\IEEEauthorblockA{University of New Mexico\\
+Department of Electrical and Computer Engineering\\
+Albuquerque, NM 87131-0001 \\
+\{cclamb, pramod54, heileman, ravik\}@ece.unm.edu}
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+% 
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3}, 
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Personal medical record (PMR) management is under new scrutiny as private companies move into the market and government agencies actively address perceived health care distribution inequalities and inefficiencies.  Current systems are coarse-grained and provide consumers very little actual control over their data.  Herein, we propose an alternative system for managing the use of healthcare information.  This system is finer grained, allows for data mining and repackaging, and gives users more control over their data, allowing it to be distributed to their specifications.  In this paper, we outline the characteristics of such a system in different contexts, present relevant background information and research leading to the system design, and cover specific usage scenarios supported by this system that are difficult to control using simpler access control strategies.
+\end{abstract}
+
+\begin{IEEEkeywords}
+%component; formatting; style; styling;
+usage management; personal medical records
+
+\end{IEEEkeywords}
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+% no \IEEEPARstart
+New healthcare legislation has spurred previously unknown levels of public and private investment in technologies supporting more efficient healthcare delivery \cite{Emr:Web:Recovery}.   An active area of examination is personal medical records (PMRs).  Current systems, such as Microsoft HealthVault and Google Health are a start in this area, but provide rudimentary control over health information, provide consumers with very little actual control of their information, and essentially demand proprietary lockin to these products because of the amount of effort involved with data transfer \cite{Emr:EvaluationHealthInf}.
+
+In this paper we describe a framework that allows for an open, consumer-centric approach to health information storage and consumption centered around flexible and fine-grained usage management policies.  User empowering systems in this area are needed to allow users control over the information that represents them, and would be in high demand if appropriately designed \cite{Emr:PyAmWaCr}.  We propose to address this need by bundling health information (either entire records or subsets of records) with traceable and aggregateable usage policies controlled by the users themselves.  Users would have the ability to make aspects of their records available to everyone from research institutions looking for historical information for studies, to healthcare providers who need specific information to support diagnoses.  Such a framework will enable combination information from groups of users and determine dynamically via policy evaluation how that new set of data can be used in a way that complies with all included user policies.  If the combined dataset cannot be used, policies can be analyzed to determine the cause of policy conflict.
+
+Herein, we describe the design of a system that supports fine-grained management of those data elements in a PMR, and we demonstrate how this can be used in two example applications.  The proposed system will allow users to specify policies over the data itself rather than the entire record in question, providing control over information dissemination.  We will demonstrate the above mentioned capabilities in two distinct usage scenarios.  The first includes two distinct parties negotiating over access to specific information contained in a medical record.  If the parties reach an agreement, the information consumer is granted access to specific medical data, for an agreed-upon price.  The second demonstrates a data broker combining a set of previously acquired medical record data into an aggregate set for research, if the licensure is in fact compliant between all selected data elements.  In the second usage scenario, we will discuss the constraints associated with inserting aggregate data sets derived from PMRs back into a marketplace.
+
+This kind of system, allowing users control over their data in ways fostering ease of dissemination, use and reuse, helps users receive better, more targeted care, helps providers easily access required information, and allows this kind of data to be more easily examined and mined.  We apply established system design principles, used in the development of Internet-scale networks to create a open flexible system \cite{Al:04,BlCl:01,ClWrSoBr:02}.  We standardize certain features, such as operational semantics and ontological domains, but otherwise limit the impact of the policy system on data dissemination as much as possible.
+
+\subsection{Previous Work}
+Even though automated usage management of PMRs is an evolving concept, there exists a rich body of previous literature in the fields of usage management, DRM, and access control. The proposed framework leverages the results in these areas to address the specific challenges posed in usage management of PMRs. Most of the research applicable to the combination of previous artifacts into a single aggregate artifact comes from the DRM world in particular.  Generally, these expressive languages have been fundamentally based on different types of mathematical logic or formalisms with reasoning capabilities \cite{ArHu:07,BaMi:06,ChCoEtHaJoLa:03,HaWe:04,XiBjFu:08}.  This approach, while useful in closed systems, tends to not work as usefully in more open dynamic environments.  This has led to the development of translation mechanisms to address interoperability needs \cite{HeJa:05,PoPrDe:04,ScTaWo:04}.  This translation process is difficult for most policy languages, and in fact infeasible as a result \cite{KoLaMaMi:04,SaShUe:04}.  Alternative approaches have required the use of sophisticated and powerful languages that must be adopted as a universal standard \cite{OMADRM,ODRL-req,Wa:04,XrML-spec}.  This approach inherently limits innovation and flexibility \cite{HeJa:05,JaHe:04,JaHe:08,JaHeMa:06}.  Usage Management approaches eclipse standard access control methodologies for use in this type of domain, as access control is a necessary but not sufficient technology supporting this kind of asset management \cite{PaSa:04,BL:73,BL:76}.
+
+\section{New Models}
+Engineers and futurists have speculated as to the impact of PMRs for years \cite{Emr:Web:BestCaseEMR,Emr:Web:WorstCaseEMR}.  Others have speculated on the institutional use of PMRs by organizations in today's regulated medical environment \cite{Emr:doi:10.1056/NEJMc081118}.  Health records, when under the control of the person they address, are no longer controlled by the Health Insurance Portability and Accountability Act (HIPPA), though the companies that manage them on the user's behalf in these cases are regulated in most aspects by the Electronic Communications Privacy Act \cite{Emr:doi:10.1056/NEJMsb0800220}.  In total, these concerns imply certain requirements on robust medical record systems, making usage models and record control more complex.  None of the promises or concerns of PMRs can be realized or mitigated without strong usage management.  With a dependable usage management capability, PMRs open new horizons in the services landscape for interested adopters.
+
+\subsection{A Note on Reliability}
+%Consumer, physician(s) (primary, emergency, etc.); editability constraints; auditing
+In order for PMRs to be effective, they must be actively used by health care providers.  A system with the wrong kinds of editability constraints or auditing capabilities is at risk of remaining unused by an individual's care providers.  Ideally, these kinds of health records would contain the kind of information a physician would include in a patient's chart.  Providers are required to maintain this is information for adequate patient treatment.  If this information can be arbitrarily edited however, it loses its credibility.
+
+In fact, many employer-sponsored monitoring programs may incentivize gold-plating medical histories.  Systems like Virgin HealthMiles are marketing themselves directly to employers as ways to monitor employee health \cite{Emr:Web:VirginHealthMiles}.  Companies are using Virgin HealthMiles to track employee exercise, and as an incentive to use the product (and get more exercise), are offering additional contributions to employer-sponsored health savings accounts if employees meet certain criteria.  Similar scenarios could be right around the corner for personal health management systems, were employers incentivize employees to decrease blood pressure, change diet, or similar kinds of things.  In those situations, the pressure for users to alter their records to reflect the reality their employers want to see will be significant, and many users are likely to resort to embellishing their records as a result. Once that happens, health care providers can no longer use the records to provide care.
+
+Any system managing these kinds of records must therefore provide mechanisms to certify, if not the accuracy of the provided information, at least the veracity of it.  Care providers must be able to trust the information provided in a given record, and must not be required to shoulder the burden of viewing the record's edit history in order to do so.  This implies a separation of roles between those who can edit the content of a given record, and those who control how the content of that record may be used.
+
+\subsection{Remote Information Access}
+Remote access to a patient's health care information is a standard feature of everyday life to which most of us pay little attention.  While in school, we are required to provide evidence of vaccination.  When older, travel to most parts of the world requires rounds of injections.  Most travelers are strongly advised to purchase additional travel insurance to ensure appropriate care in emergencies.  Certainly, when traveling to some parts of the world internet access can be difficult to acquire, but nevertheless such access is much more common now than it was even two years ago, and is becoming easier and easier to find with the proliferation of cellular telephone networks in heretofore undeveloped countries.  
+
+Open access to this kind of healhcare information would certainly make these scenarios easier to deal with for any user, but require strong usage management protections to be effective.  In each case we have distinct sets of users that require access to care information, and in each case those users require access to a specific and limited sections of a personal healthcare record.  School administrators, for example, need to confirm the vaccination status of students.  This requires unfettered access to a student's vaccination history, but not to that student's psychiatric care or genetic record.  Likewise, travel visa providers may need access to similar information.  On the other hand, care providers no matter the country of origin require comprehensive care record access in order to provide timely and accurate care.  Furthermore, users have different requirements with respect to the speed of access.  School administrators have much less of an urgent, pressing need for care information that an Ethiopian doctor treating an injured patient.  
+
+Importantly, access need not be granted permanently.  Both administrators and foreign care providers could be given general role-based access that can be removed when no longer necessary.
+
+The ability to provide care information in a secure, manageable way in these scenarios saves users significant time and headache.  Rounding up and delivering vaccination records to school administrators is time consuming and stressful.  Receiving emergency health care in foreign countries is more than a little frightening.  Systems that can help ameliorate these kinds of situations would certainly be useful.  Furthermore, without controls over specific data elements composing a given record, these users cannot be appropriately limited in their access.
+
+\subsection{Monitoring}
+To constrain health care costs, some employers are beginning to implement holistic preventative health programs.  These programs are structured to attempt to lower overall healthcare costs for a large group of employees through regular screenings, exercise programs, and key health marker monitoring.  Employers are interested in monitoring indicators like triglyceride levels, serum cholesterol, HDL/LDL ratios, blood glucose, blood pressure, and the like.  Employee participation is not necessarily mandated, but can be encouraged through additional contributions to health savings accounts for participating employees.  In these cases, employers have specific things in which they have an interest. Employees on the other hand likely have information in their care records they very much want to keep out of their employers hands.  An employee, for example, may very much want the additional HSA contribution for her family, but is not inclined to let her employer know about her anti-depression medications or her recent treatment for alcohol dependency.
+
+A dependable usage management system supports this kind of partitioned use.  With appropriate controls, this information can be centralized and controlled by the record owner, who can create limited access for employers.  Furthermore, this kind of information can be aggregated by the user over a period of years, demonstrating a pattern of healthy behavior, and perhaps making that record owner more attractive to future employers.  Sensitive information can still be controlled by limiting access.
+
+\subsection{Custom Care}
+When users have aggregated medical information at a single location, companies can now access information ranging from previous drug reactions, current prescription status, and the current state of any disease markers.  Users can also make any reactions to medications known essentially immediately, rather than having to wait until able to visit a particular physician.  This kind of information could allow pharmaceutical companies to offer innovative services tailoring medications specifically for individual needs.  For example, large doses of Niacin are common treatment for patients with high serum cholesterol characterized by low HDL and high LDL.  One of the unfortunate side effects of Niacin is facial flushing \cite{Emr:Web:Niacin}.  This is a common but by no means universal side effect of Niacin use.  It can be alleviated in many cases by ingesting Aspirin 20-30 minutes prior to taking niacin \cite{Emr:Web:Niacin}.  Patients that suffer from this particular side effect could have their dose customized and time-released to relieve this discomfort, but only if pharmaceutical providers know this is a patient's problem.
+
+This kind of system promises to provide more responsive care at a potentially lower cost to patients, as long as patient data is available to custom medication providers.  A usage management scheme controlling specific information with respect to pharmaceutical providers could allow those providers to create custom medications for clients  better suited to those specific users.
+
+\subsection{Data Marketplace}
+%Wherever Times is specified, Times Roman or Times New Roman may be used. If neither is available on your system, please use the font closest in appearance to Times. Avoid using bit-mapped fonts if possible. True-Type 1 or Open Type fonts are preferred. Please embed symbol fonts, as well, for math, etc.
+The system we describe in the following sections incorporates a market to allow users and brokers to profit from the use of personal medical data released under mutually acceptable terms, where usage policies accompany filtered data for either dynamic or static evaluation.  Usage policies themselves are essentially unlimited in how they describe the use of a specific medical record.
+
+\section{System Architecture}
+Whatever the final technical attributes of this kind of system are, that system must at least embody certain attributes and requirements.  That architecture must furthermore facilitate usage management as a first-order attribute.
+
+\subsection{Requirements and Attributes}
+This type of system has a group of attributes and requirements that it must embody in order to fulfill the use scenarios outlined in the previous section.  Without these, the system would either be poorly received by the targeted user population or essentially non-functional.  Of course, simply aligning with these features does not guarantee widespread use; they are necessary, but not sufficient to guarantee widespread adoption.  Core features include:
+
+\begin{itemize}
+
+\item \textit{Editability} When considering a specific medical record, certain fields of that record should be editable by the owner.  Other fields must only be editable by specific medical providers.  The data owner has complete control over who those providers are, as well as what roles they fulfill.  Certain predefined roles however have access to fields of the medical record that the owner does not.  For example, a physician in the provider role is able to add information to a medical record, and edit information that provider has previously entered.  The record owner cannot edit or change that information, but can edit personal contact information.
+
+\item \textit{Roles} The system must have clearly partitioned roles related to ownership of specific areas of a given record.  These roles must be verifiable as well, either via uploading scanned credentials, indexing into professional registries, or direct provider contact.  For example, someone assigned to a provider role must be verified as a healthcare provider to prevent record owners from creating spoofed accounts to circumvent record protections.
+
+\item \textit{Auditability} The system must be able to keep a clear record of who edited what, what those specific changes were, how they were made, and when.  This audit trail helps to establish the trustworthiness of the system as a whole, and can provide configuration management functionality over records.
+
+\item \textit{Security} The system must take advantage of modern security systems as much as possible to provide additional control over assets.  Without providing adequate security, sensitive information could leak to unscrupulous third parties.  For example, a data owner that has been treated for sexually transmitted diseases in the past five years, but has in fact been married for a decade, may want to keep that information as sequestered as possible.
+
+\item \textit{Accessibility} Some of the outlined scenarios directly imply wide accessibility geographically, while others require access to medical information from devices with a variety of form factors ranging from modern smartphones to tables to desktop computers.  Still others require data to be delivered through data-centric rather than human readable means.  Not providing this kind of open, widely accessible system makes data entry and eventual use prohibitively difficult.
+
+\item \textit{Performance} Core functionality must be high performance.  Data entry must be engaging and responsive, or providers will simply abandon the system for other, more traditional ways of recording user information.  Data retrieval must be likewise snappy, especially in critical care scenarios.
+
+\item \textit{Flexibility} This system and the data it manages can be used in a wide variety of contexts.  In order to remain relevant, it must be flexible enough to be easily integrated with other arbitrary systems in both de-facto standardized (e.g. RESTful access) and officially standardized (e.g. WS-* SOAP-centric access) ways.
+
+\item \textit{Extensibility} It must provide programmatic interfaces to allow integrations with other currently unknown systems.  Not doing so limits how users can access and exploit the information they own.
+
+\end{itemize}
+
+The system as a whole provides management of PMRs, which must obviously be addressed by any proposed system architecture.  This management includes record creation, read, and update. It should not delete any data healthcare data, but other less sensitive information should be deletable.
+
+Other features like notifications on certain predefined events or predefined integrations with systems like Twitter or Facebook may certainly be useful, but are not core functionalities the system must provide.  They should be able to be addressed via core extensibility mechanisms and programming interfaces however.  
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.4in]{HisbSystemArch}
+\caption{System Architecture Runtime Component View}
+\label{fig:RuntimeView}
+\end{figure}
+
+\subsection{Sample System Architecture}
+Figure ~\ref{fig:RuntimeView} outlines a potential system architecture fulfilling the currently known attributes and requirements.  This runtime component view contains potential packages, interfaces, and components comprising a medical record usage management system.  Note that this system architecture is currently technology agnostic.  Specific packages include:
+
+\begin{itemize}
+
+\item \textit{External Use} This package contains all user facing elements.  Mobile, desktop, and programming interfaces accessed by external users are contained in this package, as are all components providing this kind of functionality.
+
+\item \textit{Development Use} This is another package containing system user access elements, but is intended to contain all private components used to access the system.  This package includes command line interfaces, allowing access via the interactive ruby shell, the Clojure read-eval-print-loop, or similar systems.  All system tests are defined here as well.  This includes unit tests, functional tests, and integration tests as well.
+
+\item \textit{System} The system package contains the core system interface(s) and components.  These contain all the system specific logic, including any downloaded policies, licenses and the like.
+
+\item \textit{Communication} Communication libraries and components are contained in this package.  Currently, we foresee the need for some kind of queuing component providing asynchronous data transfer between the core components and data stores.
+
+\item \textit{Data} The final package contains data stores for the system.  We are using separate data stores to both enhance security and provide additional data storage flexibility.
+
+\end{itemize}
+
+Various components could be mapped to disparate technologies, even within the same package.  For example, the core system component could consist of a variety of ruby gems, running in an application hosted on Heroku, with tests in RSpec, and a command line interface to support granular user story experimentation.  Queuing components could be hosed on Amazon's Simple Queue Service (SQS), while Application data is hosted in a database in Heroku, Record Data via Cloud Files on Rackspace, and Audit Data in a store hosted via Amazon Simple Storage Service (S3).  The entire system would use standard security and trusted computing technologies.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{UMOntology}
+\caption{System Usage Management Ontology}
+\label{fig:Ontology}
+\end{figure}
+
+\subsection{Usage Management}
+In order to apply usage management to a medical record, we must first define an ontology over the records we plan to manage.  In Figure ~\ref{fig:Ontology}, we have outlined a simple sample ontology in a static entity view for this domain.  In essence, we associate a group of \textit{facts} with a single \textit{record}, both of which are instances of managed \textit{resources}.  A \textit{resource} is associated with a \textit{role}, and that is an instance of a \textit{subject}.  Finally, all \textit{resources} and \textit{subjects} are related to a \textit{context}, which also refers to a given \textit{environment}. As shown in Figure~\ref{fig:Ontology}, the Environment, Subject, and the Role, each carries a set of parameters whose values determine the manner in which resources may be used within the system. 
+
+As a simple example, consider an environment with parameters, \textit{Date, Location,} and \textit{DeviceType}, and the roles that include \textit{patient}  and \textit{physician}. Given these Environment and Role parameters, it is possible to express usage rules based on constraints on these parameters. For example, a particular PMR may allow edits to a patient information to be carried out only by physicians from a certified device physically located in a hospital for a given period of time. 
+
+Whereas this is an overly simplified example of usage rules, usage management of PMRs present a unique set of the usage rules specification, interpretation, enforcement, and reasoning requirements, which are discussed below. One of the primary requirements is that users need to be able to express usage rules in a fine grained manner that accurately express their concerns regarding the  usage of PMRs. To this effect, there exist multiple multiple languages that allow expression of usage control rules on data sets~\cite{XrML-spec,PaSa:04,JaHeLa:10}.  PMRs are generally managed and used in a variety of environments that may not be known to a user \textit{a priori}, at the time of specification of the rules. Therefore, it is necessary that the usage rules can be interpreted in different types of environments, and they remain with the PMR throughout their lifecycle. Finally, PMRs are often managed in groups for the sake of research studies, and across hospitals, in such situations, it is necessary to interpret the common policies for a group of PMRs based on the usage rules associated with individual PMRs. In order in incorporate such dynamics, it is necessary that the language used for specification of usage rules is capable of handling data transformations such as mashups~\cite{JaHe:08}. 
+ 
+
+\subsection{System Architecture and Attributes}
+The system architecture described fulfills the various driving requirements and attributes.  First, we support finely managed \textit{editability} constraints via the association of \textit{facts} with \textit{roles}.  \textit{Roles}, as shown in Figure ~\ref{fig:Ontology}, are first-order system entities.  The system architecture supports \textit{auditability} via the Queueing and Audit Data components and the IQueue and IAudit interfaces.  \textit{Security} emerges from the system architecture via data partitioning and the use of standard security and trusted computing technologies.  We address \textit{accessibility} constraints via the Desktop, Mobile, and Programming application interfaces.  The system can flexibly address \textit{performance} issues within the Core component behind the ICore interface.  Judicious use of queuing enhances \textit{performance} as well.  Finally, \textit{flexibility} and \textit{extensibility} emerge from the loosely coupled componentry and publicly exposed programming interfaces.
+
+\section{Sample System - Data Marketplace}
+% Go into what the market is and why we need to use one; describe who would use it and their roles; describe when it would be used and how it could be implemented
+A data marketplace for medical data through which users can generate revenue from exposing medical information of their choosing is one possible business model we previously described.  Here, as a proof of concept of our proposed system architecture, we incentivize PMR adoption via the use of a data marketplace.  We have three primary categories of roles in mind:
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=2in]{roles}
+\caption{Data Marketplace System Roles}
+\label{fig:SysRoles}
+\end{figure}
+
+\begin{itemize}
+
+\item \textit{Data Producers} who produce and market electronic medical information.  This category is generally limited expressly to individual users who require medical care and other related products.
+
+\item \textit{Data Consumers} who directly consume medical information.  This category includes physicians, research institutions, and the like.
+
+\item \textit{Data Brokers} who acquire and re-market medical data from data producers, making that data available in some kind of value-added way for other data consumers.  They are a proper subset of data consumers.
+
+\end{itemize}
+
+\textit{Data producers} would use the medical data market to profit from their personal information.  When negotiating over specifics concerning how their data can be used, they are free to manipulate any aspect of the usage terms prior to a final agreement with a \textit{data consumer}.  The \textit{data consumer} can accept or reject a specific proposal, as can a \textit{data producer}.  A typical negotiation would look something like this:
+
+\begin{enumerate}
+
+\item A \textit{data consumer} searches the marketplace for medical information meeting specific requirements.  This step is a call to a specific search interface in our example, but could be a manual process.
+
+\item The search yields some results.  This proposed system returns a list of contact information of known \textit{data producers} that have data matching the search requirements.
+
+\item The \textit{data consumer} initiates a negotiation for access to specific data.
+
+\begin{enumerate}
+
+\item The \textit{data consumer} contacts the \textit{data producer} and submits and initial proposal.
+
+\item The \textit{data producer} responds to the initial proposal, either be indicating acceptance, rejecting the proposal, or submitting a counter proposal.
+
+\item The \textit{data consumer} is then free to respond with acceptance, rejection, or a counterproposal of her own.
+
+\end{enumerate}
+
+\item Eventually, the negotiation will conclude with the parties having reached an agreement describing access to specific medical data with associated term or having failed to come to mutually acceptable terms with respect to data access.  
+
+\end{enumerate}
+
+Usage terms in a successful conclusion generally describe what the \textit{data consumer} can access, how they may use it and for how long, where it may be accessed, and so on.  It will also usually describe some kind of payment for use, which can be based on any arbitrary number of factors such as time, date, location, attribution, or perhaps in combination with other data.
+
+The market implemented in this system is built around JADE, an open source agent development framework based on FIPA agent specifications \cite{Emr:Web:Jade,Emr:Web:Fipa}.
+
+\subsection{System Ontology}
+This system is built around a common ontology that needs must be understood by any system developers.  It is currently used to define relationships and entities within the system at design and run time.  The \textit{record} elements in this ontology map to the \textit{record} elements in Figure ~\ref{fig:Ontology}, maintaining the one-to-many relationship of \textit{facts} to \textit{records}.  The primary elements in this ontology are:
+
+\begin{itemize}
+
+\item \textit{Producer} This is a data producer as defined in our user model.  A data producer owns a given \textit{record} that has been created over a lifetime of medical care.
+
+\item \textit{Consumer} Again from the user model, a data consumer.  Data consumers use medical data in some way.
+
+\item \textit{Record} A medical record.  We can envision this as a set of discrete medical facts as defined in Figure ~\ref{fig:Ontology}.
+
+\item \textit{Filter} A transformation of a medical record.  If we have a record $ r $, we can transform $ r $ into $ r' $ by applying a transformation $ t $ such that $ r' = t(r) $ where $ t : record \rightarrow record $ and $ r' \subseteq r $.
+
+\item \textit{Filtered Record} A filtered record is a record to which a filter has been applied.  If we have a filtered record $ r' $ derived from a record $ r $, then $ r' \subseteq r $.
+
+\item \textit{License} A license describes the usage policy associated with a given filtered record.  This controls all aspects of filtered record use by an associated consumer.  The specific terms are negotiated over by the producer and the consumer until some optimal consensus is reached, and they then bind the use of an associated filtered record.  Licenses must provide the ability to trace use of transitively associated artifacts regardless of the degree of separation as well.  For example, if we have an artifact $ a $ composed of sets of data elements $ e_{0}, e_{1}, ... , e_{n} $ derived from records $ r_{0}, r_{1}, ... , r_{n} $, we need to be able to ensure that any use of a set of data elements $ e_{i}, i < n $ is within the policy bounds of record $ r_{i}, i < n $ and any compensation associated with such use is correctly attributed to the original data owners and brokers.
+
+\item \textit{Bundle} A filtered record and associated license.  This is distributed to data consumers.
+
+\end{itemize}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{ontology}
+\caption{System Ontology}
+\label{System Ontology}
+\end{figure}
+
+\subsection{Dynamic and Static Policy Evaluation}
+%what who when where why how
+%(what) define dynamic and static policy evaluation, elucidate specific advantages/disadvantages of each & where used, go over which we need to use here and why
+Usage policies can be evaluated over a spectrum bordered by two distinct approaches - either dynamically, at request time, or statically, when a bundle is created.  Pure dynamic policy evaluation evaluates the entire policy against an artifact at \textit{request time}, specifically and only when a request for an action is made by a consumer.  Static evaluation only occurs when \textit{the bundle is created} and is not evaluated at any later time.  While dynamic policies are more powerful, static policies are generally simpler to define, create, and apply.  Dynamic policy evaluation requires significant runtime infrastructure as well, which static evaluation will never require.  Furthermore, that runtime infrastructure must be present in a variety of systems, implemented upon a myriad of platforms in a slew of different programming languages.  Still, we have compelling reasons for developing dynamic evaluation systems.  Static systems cannot evaluate dynamic properties well.  Attributes like time are impossible to adjudicate with the simplest of static licenses and require some kind of dynamic evaluation.  Likewise, evaluation of a bundle's context is equally impossible to do with simple static policies.  Dynamic policies are more suitable for content that producers are interested in providing for unexpected use, while static policies generally only support predefined use scenarios.
+
+In this system, we propose to use a combination of static and dynamic approaches.  Static policy evaluation occurs immediately after negotiation between the producer and consumer, when a filter is applied to the medical record.  This simplifies dynamic policy requirements by limiting the data that needs to be evaluated after the bundle is released.  If this filter were not applied, the dynamic policy would need to additional clauses to support hiding only those data elements to which the consumer has not been granted access.  All other evaluation occurs after the bundle is delivered to the consumer.  In order to support more complex and unexpected usage scenarios, including evaluating usage based on time constraints, this framework provides extensive dynamic evaluation capabilities after the initial filtering phase.  We also need to be able to support seamless operation over protected artifacts while disconnected from any kind of network or communication medium.  These factors lead to a powerful and local dynamic policy evaluation system.
+
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the 
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals/conferences use top floats
+% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
+% command of the stfloats package.
+
+
+
+\section{Conclusion}
+New levels of heretofore unknown government interest in health care delivery will undoubtedly lead to increased use of personal health records \cite{Emr:Web:Recovery}.  Though current starts in this area are somewhat closed, limited, and suffer from a lack of user focus, organizations will develop new systems to deal with this extensive and valuable data.
+
+In this paper, we have outlined access and editing concerns associated with personal health records as well as various new business models that proper usage management of personal health data can create.  These new models included remote monitoring, through which users have access to their medical information from remote locations over a variety of devices (including cellular telephones and the like).  We also described in some detail how both health care consumers and providers can benefit from long-term health monitoring, and finally covered how a PMR storage system incorporating usage management enables more targeted and precise medical care.  Without appropriate usage safeguards, these models would not be tenable.  We also covered in some detail the system architecture of a usage management system for medical records.
+
+The system we have developed begins to address our outlined scenarios.  Here, we presented design elements of a specific implementation of our system, a data marketplace.  Our marketplace had specific roles associated with data provision and consumption, and incorporates automated agent-based negotiation over data access.
+
+Future areas of study in this domain include extension of our current system to other outlined scenarios.
+
+
+
+% conference papers do not normally have an appendix
+
+
+% use section* for acknowledgement
+%\section*{Acknowledgment}
+%The authors would like to thank Sandia National Laboratories for supporting our work.
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+%\begin{thebibliography}{1}
+%\bibliographystyle{plain}
+\bibliographystyle{IEEEtran}
+\bibliography{emr,drm}
+
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+  
+%\bibitem{Jamkhedkar:Heileman}
+%P.A.~Jamkhedkar and G.~L. Heileman, \emph{An Interoperable Usage Management Framework},
+%  ACM DRM 2010, Chicago Ill, USA, 2010.
+
+%\end{thebibliography}
+
+
+
+
+% that's all folks
+\end{document}
+
+
