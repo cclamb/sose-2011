@@ -7,48 +7,46 @@ Database file #2: drm.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty author in Emr:doi:10.1056/NEJMc081118
 
 Done.
-You've used 35 entries,
+You've used 11 entries,
             4039 wiz_defined-function locations,
-            1043 strings with 13204 characters,
-and the built_in function-call counts, 22371 in all, are:
-= -- 1796
-> -- 416
-< -- 153
-+ -- 235
-- -- 67
-* -- 1040
-:= -- 3404
-add.period$ -- 73
-call.type$ -- 35
-change.case$ -- 40
-chr.to.int$ -- 357
-cite$ -- 36
-duplicate$ -- 1720
-empty$ -- 2009
-format.name$ -- 89
-if$ -- 5164
+            887 strings with 9166 characters,
+and the built_in function-call counts, 7190 in all, are:
+= -- 562
+> -- 144
+< -- 55
++ -- 84
+- -- 23
+* -- 344
+:= -- 1072
+add.period$ -- 22
+call.type$ -- 11
+change.case$ -- 12
+chr.to.int$ -- 123
+cite$ -- 11
+duplicate$ -- 545
+empty$ -- 618
+format.name$ -- 30
+if$ -- 1651
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 319
-newline$ -- 132
-num.names$ -- 28
-pop$ -- 761
+int.to.str$ -- 11
+missing$ -- 99
+newline$ -- 56
+num.names$ -- 7
+pop$ -- 241
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1724
+skip$ -- 553
 stack$ -- 0
-substring$ -- 877
-swap$ -- 1313
-text.length$ -- 34
+substring$ -- 300
+swap$ -- 424
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 35
-warning$ -- 1
-while$ -- 87
-width$ -- 37
-write$ -- 346
-(There was 1 warning)
+type$ -- 11
+warning$ -- 0
+while$ -- 26
+width$ -- 13
+write$ -- 120
