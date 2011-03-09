@@ -1,24 +1,29 @@
 
-\documentclass[10pt, conference, compsoc]{IEEEtran}
+%\documentclass[10pt, conference, compsoc]{IEEEtran}
+\documentclass[times, 10pt,twocolumn]{article}
 
-\ifCLASSINFOpdf
+\usepackage{sose2011}
+
+%S\usepackage{fancyheadings}
+
+%\ifCLASSINFOpdf
   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   \graphicspath{{./images/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
   \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
-\else
+%\else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
-  \usepackage[dvips]{graphicx}
+%  \usepackage[dvips]{graphicx}
   % declare the path(s) where your graphic files are
-  \graphicspath{{./images/}}
+%  \graphicspath{{./images/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  \DeclareGraphicsExtensions{.eps}
-\fi
+%  \DeclareGraphicsExtensions{.eps}
+%\fi
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -33,26 +38,37 @@
 % author names and affiliations
 % use a multiple column layout for up to two different
 % affiliations
-\author{\IEEEauthorblockN{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman}
-\IEEEauthorblockA{University of New Mexico\\
-Department of Electrical and Computer Engineering\\
-Albuquerque, NM 87131-0001 \\
-\{cclamb, pramod54, heileman\}@ece.unm.edu}
+%\author{\IEEEauthorblockN{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman}
+%\IEEEauthorblockA{University of New Mexico\\
+%Department of Electrical and Computer Engineering\\
+%Albuquerque, NM 87131-0001 \\
+%\{cclamb, pramod54, heileman\}@ece.unm.edu}
+%}
+
+\author{
+        \textbf{Christopher Lamb}\hspace*{0.3in}
+        \textbf{Pramod Jamkhedkar}\hspace*{0.3in}
+        \textbf{Greg Heileman}\\
+        Department of Electrical and Computer Engineering \\
+        University of New Mexico \\
+        \small{\{cclamb, pramod54, heileman\}@ece.unm.edu}
 }
 
 % make the title area
+%\maketitle
 \maketitle
-
 
 \begin{abstract}
 abstract
 \end{abstract}
 
-\begin{IEEEkeywords}
-usage management; personal medical records
-\end{IEEEkeywords}
+\textbf{Keywords:} Usage Managment, Cloud Computing, System of Systems.
 
-\IEEEpeerreviewmaketitle
+%\begin{IEEEkeywords}
+%usage management; personal medical records
+%\end{IEEEkeywords}
+
+%\IEEEpeerreviewmaketitle
 
 \section{Introduction}
 Cloud computing provides computing infrastructure and applications in the form of sophisticated services that can be accessed over a network. In cloud computing usage scenarios,  data and applications  of a ``cloud user'' reside on the cloud computing infrastructure that is owned and maintained by a third party ``cloud provider''.  This particular characteristic of cloud computing raises a number of policy issues in terms of user concerns and expectations, which include service reliability, liability, security, privacy, access control, usage control and protection of intellectual property~\cite{JeLiGr:08}.  Typically, these user expectations are captured in the form of Service Level Agreements (SLAs) that are brokered between the providers and users~\cite{BuYeVeBrBr:09}. The proposed research will explore the theoretical and practical aspects of developing a framework that will provide a comprehensive solution for expression, evaluation, reasoning and management of SLA policies in cloud computing environments in an automated manner. 
