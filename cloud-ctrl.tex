@@ -1,51 +1,18 @@
-
-%\documentclass[10pt, conference, compsoc]{IEEEtran}
 \documentclass[times, 10pt,twocolumn]{article}
 
 \usepackage{sose2011}
 \usepackage{times}
-
-%S\usepackage{fancyheadings}
-
-%\ifCLASSINFOpdf
-  \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  \graphicspath{{./images/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  \DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
-%\else
-  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
-  % will default to the driver specified in the system graphics.cfg if no
-  % driver is specified.
-%  \usepackage[dvips]{graphicx}
-  % declare the path(s) where your graphic files are
-%  \graphicspath{{./images/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-%  \DeclareGraphicsExtensions{.eps}
-%\fi
+\usepackage[pdftex]{graphicx}
+\graphicspath{{./images/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 \pagestyle{empty}
 
 \begin{document}
-%
-% paper title
-% can use linebreaks \\ within to get better formatting as desired
+
 \title{Managed Control of Composite Cloud Systems}
-
-
-% author names and affiliations
-% use a multiple column layout for up to two different
-% affiliations
-%\author{\IEEEauthorblockN{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman}
-%\IEEEauthorblockA{University of New Mexico\\
-%Department of Electrical and Computer Engineering\\
-%Albuquerque, NM 87131-0001 \\
-%\{cclamb, pramod54, heileman\}@ece.unm.edu}
-%}
 
 \author{
         \textbf{Christopher Lamb}\hspace*{0.3in}
@@ -56,27 +23,24 @@
         \small{\{cclamb, pramod54, heileman\}@ece.unm.edu}
 }
 
-% make the title area
-%\maketitle
 \maketitle
 \thispagestyle{empty}
 
 \begin{abstract}
-abstract
+Cloud providers have just begun to provide primitive functionality enabling users to configure and easily provision resources, and primarily in the Infrastructure as a service domain at that.  In order to effectively manage cloud resources in an automated fashion, systems must automate quality of service metric measurement as a part of a larger usage management strategy.  Collected metrics can then be used within control loops to manage and provision cloud resources when needed.
 \end{abstract}
 
-\textbf{Keywords:} Usage Managment, Cloud Computing, System of Systems.
-
-%\begin{IEEEkeywords}
-%usage management; personal medical records
-%\end{IEEEkeywords}
-
-%\IEEEpeerreviewmaketitle
+{
+\setlength{\parindent}{0mm}
+\textbf{Keywords:} Usage Management, Cloud Computing, System of Systems.
+}
 
 \section{Introduction}
-Unlike grid computing, clusters and web services, cloud computing services are unique since they tend to be more market oriented, host entire user applications for extended periods of time, and process these applications within a distributed cloud environment. These characteristics raise serious concerns from cloud users' perspective regarding the manner in which their data is handled or used by the cloud services. These metrics are orthogonal to the traditional performance oriented quality of service (QoS) metrics, and their semantics are well beyond encryption and privacy requirements. Existing service level agreement (SLA) frameworks focus primarily on performance-oriented QoS parameters, and are not designed for expressing and enforcing policies to control the manner and restrictions under which users' data need to be handled~\cite{WSA, WSLA, WSP,PaRaSh:09}. 
- 
- The ability to express fine-grained usage policies will provide cloud users a greater trust regarding the usage of their data within clouds, and will provide them with confidence to employ cloud services. A mechanism to interpret, reason over, and enforce usage policies within clouds in an automated manner will allow cloud users to optimize resource allocation while ensuring safety and security of users data. A correct estimation of the cost involved in enforcing usage policies will further enable cloud providers business opportunities such as yield management and price differentiation. 
+Cloud computing services as a computational paradigm are more market oriented than previous attempts at commodity computing.  Furthermore, they are in many cases designed to be composed into larger, more powerful customer facing systems.  These kinds of aggregate systems fit neatly into one of the more commonly used definitions of a system of systems as well \cite{Sose:SageCuppan:2001}, \cite{Sose:Web:Defns}.  With so much data in the hands of different providers in an aggregate system, system developers and users are hard-pressed to effectively monitor and control the use of sensitive content by various composite systems.  Some of this information can be contained in Service Level Agreements (SLAs), but they have thus far been focused on quality-of-service (QoS) metrics rather than addressing issues like data flow or physical application residency.  For the most part SLAs are simply not sufficient for addressing usage management concerns \cite{WSA}, \cite{WSLA}, \cite{WSP}, \cite{PaRaSh:09}.
+
+Effective usage management monitoring coupled with feedback processing creates an event loop suitable for applying control theoretic concepts to cloud infrastructures.
+
+The ability to express fine-grained usage policies will provide cloud users a greater trust regarding the usage of their data within clouds, and will provide them with confidence to employ cloud services. A mechanism to interpret, reason over, and enforce usage policies within clouds in an automated manner will allow cloud users to optimize resource allocation while ensuring safety and security of users data. A correct estimation of the cost involved in enforcing usage policies will further enable cloud providers business opportunities such as yield management and price differentiation. 
 
 This paper introduces the notion of usage management in cloud computing and provides an in-depth analysis of the challenges and principles involved in the design of an open, interoperable usage management framework that operates over a distributed cloud computing environment. The analysis includes application of well-known principles of system design and standards~\cite{BlCl:01,Cl:88,ClWrSoBr:02}, research developments in the areas of usage control~\cite{PaSa:04,JaHeLa:10}, policy languages design principles~\cite{JaHeMa:06}, digital rights management (DRM) systems~\cite{JaHe:09},  and interoperability~\cite{JaHe:04,HeJa:05,KoLaMaMi:04,coral,marlin} towards the development of such a framework.
 
@@ -111,7 +75,7 @@ In this paper we introduced the notion of usage management in cloud computing en
 Future works involves efforts towards the development of a common extensible cloud ontology that will provide the vocabulary underlying this framework and enable interoperability. Such an ontology needs be developed by taking into consideration the requirements of different cloud services. In addition, it is necessary to standardize interfaces for other security mechanisms mentioned in the paper that can be incorporated within the framework. Finally, the framework allows use of multiple policy languages, to this effect, existing policy languages can be modified to be incorporated within the framework, and news ones need to designed to address the specific needs of different cloud services.
 
 \bibliographystyle{IEEEtran}
-\bibliography{emr,drm}
+\bibliography{emr,drm,sose}
 
 \end{document}
 

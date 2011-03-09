@@ -118,16 +118,17 @@
    } 
 
 \def\abstract
-   {%
-   {\bf Abstract - }%
-   \vspace*{12pt}%
-   \it%
+   {
+   \setlength{\parindent}{0mm}
+   {\bf Abstract - }
+   %\vspace*{12pt}
+   \it
    }
 
 \def\endabstract
    {
    % additional empty line at the end of the abstract 
-   % \vspace*{12pt} 
+   \vspace*{12pt} 
    }
 
 \def\affiliation#1{\gdef\@affiliation{#1}} \gdef\@affiliation{}
