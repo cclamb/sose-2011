@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  9 MAR 2011 21:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  10 MAR 2011 05:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -109,118 +109,75 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-
-
-LaTeX Warning: Citation `Sose:SageCuppan:2001' on page 1 undefined on input lin
-e 40.
-
-
-LaTeX Warning: Citation `Sose:Web:Defns' on page 1 undefined on input line 40.
-
-
-LaTeX Warning: Citation `WSA' on page 1 undefined on input line 40.
-
-
-LaTeX Warning: Citation `WSLA' on page 1 undefined on input line 40.
-
-
-LaTeX Warning: Citation `WSP' on page 1 undefined on input line 40.
-
-
-LaTeX Warning: Citation `PaRaSh:09' on page 1 undefined on input line 40.
-
-
-LaTeX Warning: Citation `BlCl:01' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `Cl:88' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `ClWrSoBr:02' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `PaSa:04' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `JaHeLa:10' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `JaHeMa:06' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `JaHe:09' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `JaHe:04' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `HeJa:05' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `KoLaMaMi:04' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `coral' on page 1 undefined on input line 46.
-
-
-LaTeX Warning: Citation `marlin' on page 1 undefined on input line 46.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+Underfull \hbox (badness 7740) in paragraph at lines 53--54
+[]\OT1/ptm/m/n/10 Over the past few years mul-ti-ple service-based
+ []
 
-LaTeX Warning: Citation `Bu:09' on page 2 undefined on input line 55.
-
-
-LaTeX Warning: Citation `BuYeVeBrBr:09' on page 2 undefined on input line 55.
-
-
-LaTeX Warning: Citation `AWS' on page 2 undefined on input line 57.
-
-
-Underfull \vbox (badness 5050) has occurred while \output is active []
+(./cloud-ctrl.bbl
+Underfull \hbox (badness 1057) in paragraph at lines 26--31
+\OT1/ptm/m/n/10 sys-tems en-gi-neer-ing and man-age-ment of
+ []
 
 
-
-LaTeX Warning: Citation `WSA' on page 2 undefined on input line 59.
-
-
-LaTeX Warning: Citation `WSLA' on page 2 undefined on input line 59.
+Overfull \hbox (7.75177pt too wide) in paragraph at lines 26--31
+\OT1/ptm/m/n/10 http://portal.acm.org/citation.cfm?id=1234195.1234200 
+ []
 
 
-LaTeX Warning: Citation `WSP' on page 2 undefined on input line 59.
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
+[]\OT1/ptm/m/n/10 ``IEEE SMC 2005 Con-fer-ence Theme,''
+ []
 
 
-LaTeX Warning: Citation `PaRaSh:09' on page 2 undefined on input line 59.
+Underfull \hbox (badness 1281) in paragraph at lines 33--35
+\OT1/ptm/m/n/10 http://ieeesmc2005.unm.edu/SoSE[]Defn.htm, March
+ []
 
 
-LaTeX Warning: Citation `PaSc:06' on page 2 undefined on input line 59.
+Underfull \hbox (badness 10000) in paragraph at lines 44--48
+\OT1/ptm/m/n/10 http://www.research.ibm.com/wsla/WSLASpecV1-
+ []
 
 [2]
-No file cloud-ctrl.bbl.
-[3
+Underfull \hbox (badness 1270) in paragraph at lines 73--76
+[]\OT1/ptm/m/n/10 D. D. Clark, J. Wro-clawski, K. R. Sollins, and
+ []
 
-] (./cloud-ctrl.aux)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 78.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 78.
 
-LaTeX Warning: There were undefined references.
+Underfull \hbox (badness 1975) in paragraph at lines 87--90
+\OT1/ptm/m/n/10 Ortiz, ``The prob-lem with rights ex-pres-sion lan-
+ []
 
- ) 
+
+Underfull \hbox (badness 1460) in paragraph at lines 92--95
+[]\OT1/ptm/m/n/10 P. A. Jamkhed-kar and G. L. Heile-man, ``Dig-i-tal
+ []
+
+) [3] (./cloud-ctrl.aux) ) 
 Here is how much of TeX's memory you used:
- 1022 strings out of 495061
- 12759 string characters out of 1182620
- 69663 words of memory out of 3000000
- 4222 multiletter control sequences out of 15000+50000
+ 1036 strings out of 495061
+ 12996 string characters out of 1182620
+ 67758 words of memory out of 3000000
+ 4234 multiletter control sequences out of 15000+50000
  20659 words of font info for 41 fonts, out of 3000000 for 9000
  31 hyphenation exceptions out of 8191
- 25i,8n,21p,1822b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/typ
-e1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.
-pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cloud-ctrl.pdf (3 pages, 61687 bytes).
+ 25i,8n,21p,1808b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc
+}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texli
+ve/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
+imes/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on cloud-ctrl.pdf (3 pages, 78459 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

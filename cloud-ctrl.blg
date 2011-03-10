@@ -14,45 +14,45 @@ Warning--empty author in marlin
 Warning--missing institution in marlin
 
 Done.
-You've used 22 entries,
+You've used 20 entries,
             4039 wiz_defined-function locations,
-            964 strings with 11228 characters,
-and the built_in function-call counts, 14127 in all, are:
-= -- 1136
-> -- 251
+            953 strings with 10909 characters,
+and the built_in function-call counts, 13322 in all, are:
+= -- 1076
+> -- 241
 < -- 102
-+ -- 143
-- -- 38
-* -- 695
-:= -- 2181
-add.period$ -- 42
-call.type$ -- 22
-change.case$ -- 19
++ -- 138
+- -- 36
+* -- 660
+:= -- 2046
+add.period$ -- 38
+call.type$ -- 20
+change.case$ -- 17
 chr.to.int$ -- 237
-cite$ -- 26
-duplicate$ -- 1070
-empty$ -- 1231
-format.name$ -- 51
-if$ -- 3227
+cite$ -- 24
+duplicate$ -- 998
+empty$ -- 1138
+format.name$ -- 48
+if$ -- 3046
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 195
-newline$ -- 105
-num.names$ -- 15
-pop$ -- 453
+int.to.str$ -- 20
+missing$ -- 180
+newline$ -- 97
+num.names$ -- 14
+pop$ -- 408
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1082
+skip$ -- 1019
 stack$ -- 0
-substring$ -- 572
-swap$ -- 834
+substring$ -- 570
+swap$ -- 794
 text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 22
+type$ -- 20
 warning$ -- 4
-while$ -- 58
-width$ -- 24
-write$ -- 239
+while$ -- 57
+width$ -- 22
+write$ -- 221
 (There were 4 warnings)
