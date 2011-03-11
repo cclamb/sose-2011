@@ -2,6 +2,7 @@
 
 \usepackage{sose2011}
 \usepackage{times}
+\usepackage{color}
 \usepackage[pdftex]{graphicx}
 
 \graphicspath{{./images/}}
@@ -79,41 +80,57 @@ We have identified the attributes we wish to control.  This leads us to a group 
 \item \textit{Accessibility:} In order to control component systems, we must be able to access those systems.  In order to do so within time constraints, we must be able to access those systems electronically as well; physical access requirements simply will not scale into this performance domain.
 \item \textit{Controllability:} We must be able to access the appropriate control primitives on the systems we need to tune.  This will include accessing compute node generation and termination capabilities.  It would help if we could access node performance information and tune those nodes as well, though this is not required; we can emulate this by terminating nodes in one configuration and creating nodes with another to more adequately address performance needs.
 \end{itemize}
-	
+
 These system attributes lead us to a system architecture that is beginning to look like a traditional feedback-centric controllable system.
-
-[insert UML diagram]
-
+\\
+\\
+\textcolor{red}{[insert UML diagram]}
+\\
+\\
 The above system has four primary components, one of which has three subcomponents.  These components work together to provide cloud services to consumers in a hypothetical Infrastructure-as-a-Service scenario.  This particular view addresses logical, functional components of this kind of a system rather than specific technologies used in an implementation, although some components are loosely modeled on popular open-source cloud environments (i.e. Eucalyptus).
 
 Essentially, we have a cloud controller element that initiates provisioning of compute nodes within a given cluster. The cluster itself is managed by a cluster controller, which in turn controls storage controllers, node controllers, and by extension, nodes.  The nodes and node controllers themselves are monitored by a resource allocation controller which refers to a set of QoS requirements.
 
 \begin{itemize}
-\item \textit{Cloud Controller}
-\item \textit{Cluster Controller}
-\item \textit{Storage Controller}
-\item \textit{Node Controller}
-\item \textit{Node}
-\item \textit{QoS}
-\item \textit{Resource Allocation Controller }
+\item \textit{Cloud Controller:} Provides an initial interface to administrative users to control the cloud.
+\item \textit{Cluster Controller:} Managed by the cloud controller, the cluster controller manages the resources of a single cluster. A given cloud may contain multiple clusters.
+\item \textit{Storage Controller:} Provides storage of system images and for other general storage needs.  This controller component is highly I/O sensitive.
+\item \textit{Node Controller:} Responsible for allocating, delivering, and managing individual compute nodes upon which client software runs.  This is the primary computational resource accessed by users accessing managed cloud resources.
+\item \textit{Node:} The compute node delivering services to end users and managed by the cluster's control infrastructure.
+\item \textit{QoS:} Quality of service terms the cloud provider has agreed to honor for the cloud customer with respect to system delivery, provisioning, and overall performance.
+\item \textit{Resource Allocation Controller:} The component responsible for real-time tuning of the cloud system to maintain defined quality of service.
 \end{itemize}
 
-	(describe how they work together)
-	(cast in control theoretic terms)
-(where; discuss where it would be hosted)
-	(address physical and logical)
-(how; discuss how this supports better management of cloud systems)
-(who; who is impacted and how they're impacted)
+Operationally, the initial commands required to initialize the cloud are delivered from the \textit{Could Controller} to the \textit{Cluster Controller}, who then propagates another, related set of commands provisioning an initial set of resources from the \textit{Node Controllers} and the \textit{Storage Controllers}.  At this point, the initial system has been configured and is running, serving hosted software to it's customer base.
 
+Once the system is running, state data describing the performance metrics of interest is dispatched from \textit{Nodes} on the \textit{Node Controllers} and the \textit{Storage Controller} and delivered to the \textit{Resource Allocation Controller}.  The \textit{Resource Allocation Controller} then processes this new event data in the context of the defined \textit{QoS} parameters.  This processing, in this model, is likely to be simple processing over the current event package or perhaps the current and the otherwise most recent event package.  This evaluation is very performance sensitive; we need to process the state of the current system quickly and adjust resource allocation accordingly.  Because of this soft real-time requirement, we don't have the luxury of spending significant time reviewing trending or providing sophisticated analysis over delivered event information.  Note that extension of this system into the feedforward domain would allow this kind of more robust system management, allowing us to employ more complex and powerful machine learning or neural systems to predict system needs.
+
+Finally, if needed the \textit{Resource Allocation Controller} will dispatch messages to the \textit{Cluster Controller}, \textit{Nodes}, and \textit{Storage Controller} adjusting system profiles to ensure they remain within acceptable performance ranges.
+\\
+\\
+\textcolor{red}{[cast in control theoretic terms, include block diagram]}
+\\
+\\
+This control infrastructure as it has strict timing requirements with respect to event collection, analysis, and control, likely needs to be hosted in close physical proximity to the controlled systems.  Otherwise, the systems themselves can be located just about anywhere accessible to the Internet.  These logical components are not necessarily all hosted on physically distinct systems either, though generally at least the \textit{Storage Controller} and the \textit{Node Controller} are as they have remarkably different requirements with respect to processing power and I/O throughput.
+
+Clearly, both the cloud service consumer and providers are impacted by this kind of infrastructure.  Consumers have systems performing within required performance bounds, and providers are no longer required to maintain as strict administrative over-watch of managed systems.  This kinds of systems may also impact system developers, as this kind of dynamic node control and allocation imparts new requirements with respect to intra-system data handing and processing.  Generally however, accepted service development guidelines with respect to statelessness and allowing running processes to terminate prior to node shutdown will alleviate these issues.
+
+When implemented, this kind of system will provide dynamic runtime control of cloud systems enhancing provider and customer confidence in the hosted infrastructure's performance potential.  This can also be extended into the usage management realm with more specific requirements with respect to how customer artifacts are managed, not just delivered.
 
 \section{Single Provider Feedback System with Usage Management}\label{sec:singleUm}
 
+\textcolor{red}{[expand to UM, add new components and implications]}
+
 \section{Scaling to Multiple Providers}\label{sec:multiple}
+
+\textcolor{red}{[scale to multiple providers accessing common QoS]}
 
 \section{Conclusion}
 In this paper we introduced the notion of usage management in cloud computing environment. Cloud computing exhibits a unique set of characteristics that will require usage management of users' data according to user concerns and expectations. We analyzed the challenges involved in the design and development of a framework for usage management in cloud environments. We showed that such a framework needs to be open to leverage existing security technologies and SLA frameworks. The framework needs to exhibit features such as support for multiple policy languages, existence of a common cloud ontology, dynamic interpretation and data transformations. Finally a preliminary framework that supports multiple policy languages was introduced that will provide a platform upon which such a framework can be built. 
 
 Future works involves efforts towards the development of a common extensible cloud ontology that will provide the vocabulary underlying this framework and enable interoperability. Such an ontology needs be developed by taking into consideration the requirements of different cloud services. In addition, it is necessary to standardize interfaces for other security mechanisms mentioned in the paper that can be incorporated within the framework. Finally, the framework allows use of multiple policy languages, to this effect, existing policy languages can be modified to be incorporated within the framework, and news ones need to designed to address the specific needs of different cloud services.
+
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{emr,drm,sose}
