@@ -68,6 +68,43 @@ Over the past few years multiple service-based paradigms like web-services, clus
 %\cite{KoLaMaMi:04,SaShUe:04}
 
 \section{Single Provider Feedback System}\label{sec:single}
+Controllable cloud systems enable providers to supply more closely targeted, cost effective services while at the same time providing service consumers with the confidence that the data and other artifacts their systems use are protected.  With that as our eventual goal, we first begin with a simple system managing currently accepted QoS parameters - system attributes like bandwidth, system memory allocation, and the like.  Specifically, we intend to provide the ability to monitor and control a virtual system hosted on a cloud infrastructure so that response time for a hosted application falls within a specific range of accepted parameters.
+
+In order to manipulate a system to meet a preselected threshold of performance metrics, we must have access to measurement information with respect to factors effecting those metrics and we need to be able to adjust system performance in response to those measurements.  We are going to focus on system response time measured at the edge of the cloud provider's infrastructure as the metric we wish to control.  We are going to adjust system performance to meet that metric by manipulating the number of processing nodes, bandwidth available to those nodes, and node RAM allocations.
+
+We have identified the attributes we wish to control.  This leads us to a group of requirements we can use to assemble a logical system architecture.  Requirements we know we need to address include:
+
+\begin{itemize}
+\item \textit{Performance:} We will be adjusting a system within specific soft real-time frames.  Ergo, we need to be able to collect feedback measurements, process those measurements, and make decisions about how to respond to those measurements quickly in order to avoid falling out of compliance with any performance parameters to which we must adhere.
+\item \textit{Accessibility:} In order to control component systems, we must be able to access those systems.  In order to do so within time constraints, we must be able to access those systems electronically as well; physical access requirements simply will not scale into this performance domain.
+\item \textit{Controllability:} We must be able to access the appropriate control primitives on the systems we need to tune.  This will include accessing compute node generation and termination capabilities.  It would help if we could access node performance information and tune those nodes as well, though this is not required; we can emulate this by terminating nodes in one configuration and creating nodes with another to more adequately address performance needs.
+\end{itemize}
+	
+These system attributes lead us to a system architecture that is beginning to look like a traditional feedback-centric controllable system.
+
+[insert UML diagram]
+
+The above system has four primary components, one of which has three subcomponents.  These components work together to provide cloud services to consumers in a hypothetical Infrastructure-as-a-Service scenario.  This particular view addresses logical, functional components of this kind of a system rather than specific technologies used in an implementation, although some components are loosely modeled on popular open-source cloud environments (i.e. Eucalyptus).
+
+Essentially, we have a cloud controller element that initiates provisioning of compute nodes within a given cluster. The cluster itself is managed by a cluster controller, which in turn controls storage controllers, node controllers, and by extension, nodes.  The nodes and node controllers themselves are monitored by a resource allocation controller which refers to a set of QoS requirements.
+
+\begin{itemize}
+\item \textit{Cloud Controller}
+\item \textit{Cluster Controller}
+\item \textit{Storage Controller}
+\item \textit{Node Controller}
+\item \textit{Node}
+\item \textit{QoS}
+\item \textit{Resource Allocation Controller }
+\end{itemize}
+
+	(describe how they work together)
+	(cast in control theoretic terms)
+(where; discuss where it would be hosted)
+	(address physical and logical)
+(how; discuss how this supports better management of cloud systems)
+(who; who is impacted and how they're impacted)
+
 
 \section{Single Provider Feedback System with Usage Management}\label{sec:singleUm}
 
