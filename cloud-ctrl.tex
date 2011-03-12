@@ -103,7 +103,7 @@ Essentially, we have a cloud controller element that initiates provisioning of c
 
 Operationally, the initial commands required to initialize the cloud are delivered from the \textit{Could Controller} to the \textit{Cluster Controller}, who then propagates another, related set of commands provisioning an initial set of resources from the \textit{Node Controllers} and the \textit{Storage Controllers}.  At this point, the initial system has been configured and is running, serving hosted software to it's customer base.
 
-Once the system is running, state data describing the performance metrics of interest is dispatched from \textit{Nodes} on the \textit{Node Controllers} and the \textit{Storage Controller} and delivered to the \textit{Resource Allocation Controller}.  The \textit{Resource Allocation Controller} then processes this new event data in the context of the defined \textit{QoS} parameters.  This processing, in this model, is likely to be simple processing over the current event package or perhaps the current and the otherwise most recent event package.  This evaluation is very performance sensitive; we need to process the state of the current system quickly and adjust resource allocation accordingly.  Because of this soft real-time requirement, we don't have the luxury of spending significant time reviewing trending or providing sophisticated analysis over delivered event information.  Note that extension of this system into the feedforward domain would allow this kind of more robust system management, allowing us to employ more complex and powerful machine learning or neural systems to predict system needs.
+Once the system is running, state data describing the performance metrics of interest is dispatched from \textit{Nodes} on the \textit{Node Controllers} and the \textit{Storage Controller} and delivered to the \textit{Resource Allocation Controller}.  The \textit{Resource Allocation Controller} then processes this new event data in the context of the defined \textit{QoS} parameters.  This processing, in this model, is likely to be simple processing over the current event package or perhaps the current and the otherwise most recent event package.  This evaluation is very performance sensitive; we need to process the state of the current system quickly and adjust resource allocation accordingly.  Because of this soft real-time requirement, we do not have the luxury of spending significant time reviewing trending or providing sophisticated analysis over delivered event information.  Note that extension of this system into the feedforward domain would allow this kind of more robust system management, allowing us to employ more complex and powerful machine learning or neural systems to predict system needs.
 
 Finally, if needed the \textit{Resource Allocation Controller} will dispatch messages to the \textit{Cluster Controller}, \textit{Nodes}, and \textit{Storage Controller} adjusting system profiles to ensure they remain within acceptable performance ranges.
 \\
@@ -118,6 +118,56 @@ Clearly, both the cloud service consumer and providers are impacted by this kind
 When implemented, this kind of system will provide dynamic runtime control of cloud systems enhancing provider and customer confidence in the hosted infrastructure's performance potential.  This can also be extended into the usage management realm with more specific requirements with respect to how customer artifacts are managed, not just delivered.
 
 \section{Single Provider Feedback System with Usage Management}\label{sec:singleUm}
+Now that we have developed a cloud system capable of fairly granular control via a feedback control 
+loop using QoS parameters, we will being to incorporate specific usage management parameters.  
+Usage management, as a field, extends simple access control and digital rights management 
+perspectives with regard to resources.  While access control is concerned with controlling access to a 
+specific protected resource, usage management incorporates control over that initial access and 
+extends into how that resource is used after that initial access.  Likewise, while digital rights 
+management technologies do exert some level of control over the use of artifacts, they have generally 
+been applied in strict media domains like music, film, or digitized images.  In this system we will 
+apply usage management to specific non-traditional artifacts to control how they are used and where 
+they may be stored.  
+
+In order to provide control over customer data artifacts in a cloud environment, we need to first 
+establish a basic mechanism for doing so.  This system must fit within the functional confines of the 
+QoS system from Section \ref{sec:single} while extending the QoS functionality to artifacts not generally 
+controlled via traditional QoS metrics.  For these purposes, a good example of an artifact not 
+generally controlled via QoS parameters could be streaming network data.  While bandwidth 
+throttling is clearly in the QoS domain, more specific uses of that data stream like caching and 
+routing are not.  
+
+Using a data stream as an example, we recognize some situations we clearly need to be able to 
+control.  In this example, we will limit ourselves to a data stream emitted from a \textit{Node} on a 
+\textit{Node Controller} which is routed to a user as a result of a user request.  Here, we have control 
+over stream creation.  We want to limit the ability to update that data stream, we certainly don't want 
+that stream deleted, and we want to limit who may read that stream.  In fact, we can safely assume in 
+this scenario that update and deletion are operations we want to completely forbid, while we may 
+want to limit stream readability, leading us to the primary new requirement when adding usage 
+management over a network stream in this case:
+
+\begin{itemize}
+\item \textit{Accessibility:} Data streamed through the cloud system must be able to be monitored and the 
+accessibility of that stream needs to be dynamically tunable.  This implies that we need to be able to 
+control routing and caching of all streaming data according to user specified conditions.  This also 
+implies that we need to be able to control exactly which \textit{Node Controllers} are able to spawn 
+which \textit{Nodes}.
+\end{itemize}
+
+The addition of these attributes and requirements give us this logical system:
+\\
+\\
+\textcolor{red}{[insert UML diagram w/ UM \& network components]}
+\\
+\\
+(what; present UML diagram of single system with QoS)
+[insert UML diagram, with new elements]
+	(describe how they work together)
+	(cast in control theoretic terms)
+(where; discuss where it would be hosted)
+	(address physical and logical)
+(how; discuss how this supports better management of cloud systems)
+(who; who is impacted and how they're impacted)
 
 \textcolor{red}{[expand to UM, add new components and implications]}
 
