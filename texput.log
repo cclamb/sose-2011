@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  9 MAR 2011 05:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  12 MAR 2011 13:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**sose.tex
+**ctrl.tex
 
 ! Emergency stop.
-<*> sose.tex
+<*> ctrl.tex
             
 *** (job aborted, file error in nonstop mode)
 

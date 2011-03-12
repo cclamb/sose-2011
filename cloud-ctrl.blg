@@ -6,6 +6,16 @@ Database file #1: emr.bib
 Database file #2: drm.bib
 Database file #3: sose.bib
 Database file #4: ctrl.bib
+Warning--string name "december" is undefined
+--line 36 of file ctrl.bib
+Warning--string name "december" is undefined
+--line 48 of file ctrl.bib
+Warning--string name "december" is undefined
+--line 60 of file ctrl.bib
+Warning--string name "december" is undefined
+--line 72 of file ctrl.bib
+Warning--string name "december" is undefined
+--line 84 of file ctrl.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -15,45 +25,45 @@ Warning--empty author in marlin
 Warning--missing institution in marlin
 
 Done.
-You've used 20 entries,
+You've used 23 entries,
             4039 wiz_defined-function locations,
-            954 strings with 10913 characters,
-and the built_in function-call counts, 13322 in all, are:
-= -- 1076
-> -- 241
-< -- 102
-+ -- 138
-- -- 36
-* -- 660
-:= -- 2046
-add.period$ -- 38
-call.type$ -- 20
-change.case$ -- 17
-chr.to.int$ -- 237
-cite$ -- 24
-duplicate$ -- 998
-empty$ -- 1138
-format.name$ -- 48
-if$ -- 3046
+            964 strings with 11625 characters,
+and the built_in function-call counts, 17053 in all, are:
+= -- 1399
+> -- 356
+< -- 147
++ -- 202
+- -- 56
+* -- 849
+:= -- 2583
+add.period$ -- 44
+call.type$ -- 23
+change.case$ -- 20
+chr.to.int$ -- 333
+cite$ -- 27
+duplicate$ -- 1243
+empty$ -- 1352
+format.name$ -- 71
+if$ -- 3918
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 180
-newline$ -- 97
-num.names$ -- 14
-pop$ -- 408
+int.to.str$ -- 23
+missing$ -- 219
+newline$ -- 108
+num.names$ -- 17
+pop$ -- 467
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1019
+skip$ -- 1315
 stack$ -- 0
-substring$ -- 570
-swap$ -- 794
-text.length$ -- 23
+substring$ -- 802
+swap$ -- 1051
+text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 20
+type$ -- 23
 warning$ -- 4
-while$ -- 57
-width$ -- 22
-write$ -- 221
-(There were 4 warnings)
+while$ -- 71
+width$ -- 25
+write$ -- 261
+(There were 9 warnings)
