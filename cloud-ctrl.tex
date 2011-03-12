@@ -145,11 +145,26 @@ The new system has new associations and components required to implement the deg
 
 We have also added a new relationship to enable control over the \textit{Cloud Controller}.  To ensure that we can control where data is at any given time, we must also be able to control the geographic areas from which data is generated, especially if the virtual compute cloud spans national boundaries.
 
-This again forms a controllable feedback loop, though one that is more complex than the simple QoS case.  The addition of new controllable items and relationships increases the responsibility and complexity of the \textit{Resource Controller} as new logic and capabilities are added to facilitate measurement and control of the larger system.
+This again forms a controllable feedback loop, though one that is more complex than the simple QoS case.  The addition of new controllable items and relationships increases the responsibility and complexity of the \textit{Resource Controller} as new logic and capabilities are added to facilitate measurement and control of the larger system.  At this point however, the number of elements of complexity is still increasing linearly, leading us to believe that the problem may in fact still be tractable.
 
 \section{Scaling to Multiple Providers}\label{sec:multiple}
+We have briefly examined a single case controlling quality-of-service parameters and a second single case with quality-of-service and usage management parameters.  Moving from the first case to the second did increase the complexity of the problem somewhat, but not significantly.  Now we will expand our scope to multiple could providers.
+\\
+\\
+\textcolor{red}{[UML diagram w/ multiple CP and app mapping]}
+\\
+\\
+We now have three different could providers and various system layers of a sample application mapped to those providers.  The first provider, $ cp $, provides hosting for the \textit{User Interface} and \textit{Domain} layers.  The second provider, $ cp' $, provides queuing services to the application, while the third and final provider, $ cp'' $, provides data storage.  Each cloud provider contains the same elements contained by the providers in the previous sections, including a \textit{Resource Allocation Controller} specific to that cloud provider.
 
-\textcolor{red}{[scale to multiple providers accessing common QoS]}
+Also, we have a new \textit{Resource Allocation Controller}, \textit{appRac}.  This new controller is required to provide control over the resources from the application's perspective.  The provider allocation controllers are sufficient for providing control over cloud specific resources from the provider's perspective, but cannot provide the appropriate view into the needs of the application as the application's needs span provider controller domains. As a result, we need a new controller element able to take a holistic, end-to-end view of the applications component systems that can then tune those systems so that application performance is effectively managed.
+
+Here, we have a simple representation of a composite cloud system, a true system-of-systems, in the application implemented on the various cloud providers.  Furthermore, we now have the beginnings of an exponential problem with respect to \textit{application} control.  The complexity of a cloud provider may increase linearly, but the number of possible combinations of tunable parameters is exponential in the number of component systems, hinting at the beginnings of a potentially intractable problem.
+
+%(what, when, why, where, who, how)
+%(what; what does the mp case look like? what are the domains? how does it differ from previous cases?)
+% UML
+%(why, who, when; motivation; why is the mp case important? to whom? when wi)
+%(how; how do we control the systems? differences in perspectives?)	
 
 \section{Conclusion}
 In this paper we introduced the notion of usage management in cloud computing environment. Cloud computing exhibits a unique set of characteristics that will require usage management of users' data according to user concerns and expectations. We analyzed the challenges involved in the design and development of a framework for usage management in cloud environments. We showed that such a framework needs to be open to leverage existing security technologies and SLA frameworks. The framework needs to exhibit features such as support for multiple policy languages, existence of a common cloud ontology, dynamic interpretation and data transformations. Finally a preliminary framework that supports multiple policy languages was introduced that will provide a platform upon which such a framework can be built. 
