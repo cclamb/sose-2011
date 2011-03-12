@@ -1,18 +1,18 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  12 MAR 2011 13:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2010.12.15)  12 MAR 2011 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ctrl.tex
+**sose2011.tex
 
 ! Emergency stop.
-<*> ctrl.tex
-            
+<*> sose2011.tex
+                
 *** (job aborted, file error in nonstop mode)
 
  
 Here is how much of TeX's memory you used:
  3 strings out of 495061
- 105 string characters out of 1182620
+ 109 string characters out of 1182620
  45108 words of memory out of 3000000
  3282 multiletter control sequences out of 15000+50000
  3640 words of font info for 14 fonts, out of 3000000 for 9000

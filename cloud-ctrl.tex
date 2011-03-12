@@ -136,12 +136,15 @@ We have also added a new relationship to enable control over the \textit{Cloud C
 This again forms a controllable feedback loop, though one that is more complex than the simple QoS case.  The addition of new controllable items and relationships increases the responsibility and complexity of the \textit{Resource Controller} as new logic and capabilities are added to facilitate measurement and control of the larger system.  At this point however, the number of elements of complexity is still increasing linearly, leading us to believe that the problem may in fact still be tractable.
 
 \section{Scaling to Multiple Providers}\label{sec:multiple}
-We have briefly examined a single case controlling quality-of-service parameters and a second single case with quality-of-service and usage management parameters.  Moving from the first case to the second did increase the complexity of the problem somewhat, but not significantly.  Now we will expand our scope to multiple could providers.
-\\
-\\
-\textcolor{red}{[UML diagram w/ multiple CP and app mapping]}
-\\
-\\
+We have briefly examined a single case controlling quality-of-service parameters and a second single case with quality-of-service and usage management parameters.  Moving from the first case to the second did increase the complexity of the problem somewhat, but not significantly.  Now we will expand our scope to multiple could providers, as shown in Figure \ref{fig:multiple}.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3in]{Multiple}
+\caption{Multiple Cloud Providers and hosted application.}
+\label{fig:multiple}
+\end{figure}
+
 We now have three different could providers and various system layers of a sample application mapped to those providers.  The first provider, $ cp $, provides hosting for the \textit{User Interface} and \textit{Domain} layers.  The second provider, $ cp' $, provides queuing services to the application, while the third and final provider, $ cp'' $, provides data storage.  Each cloud provider contains the same elements contained by the providers in the previous sections, including a \textit{Resource Allocator} specific to that cloud provider.
 
 Also, we have a new \textit{Resource Allocator}, an \textit{Application Resource Allocator}.  This new controller is required to provide control over the resources from the application's perspective.  The provider allocation controllers are sufficient for providing control over cloud specific resources from the provider's perspective, but cannot provide the appropriate view into the needs of the application as the application's needs span provider controller domains. As a result, we need a new controller element able to take a holistic, end-to-end view of the applications component systems that can then tune those systems so that application performance is effectively managed.

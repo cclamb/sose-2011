@@ -142,14 +142,14 @@
 
 \long\def\@makecaption#1#2{
    \vskip 10pt
-   \setbox\@tempboxa\hbox{\tenhv\noindent #1.~#2} 
+   \setbox\@tempboxa\hbox{\tenhv\noindent \small{#1.~#2}} 
    \setlength{\@ctmp}{\hsize}
    \addtolength{\@ctmp}{-\@figindent}\addtolength{\@ctmp}{-\@figindent} 
    % IF longer than one indented paragraph line
    \ifdim \wd\@tempboxa >\@ctmp
       % THEN set as an indented paragraph
       \begin{list}{}{\leftmargin\@figindent \rightmargin\leftmargin} 
-         \item[]\tenhv #1.~#2\par
+         \item[]\tenhv \small{#1.~#2}\par
       \end{list}
    \else
       % ELSE center
