@@ -117,8 +117,6 @@ Using a data stream as an example, we recognize some situations we clearly need 
 \item \textit{Accessibility:} Data streamed through the cloud system must be able to be monitored and the accessibility of that stream needs to be dynamically tunable.  This implies that we need to be able to control routing and caching of all streaming data according to user specified conditions.  This also implies that we need to be able to control exactly which \textit{Node Controllers} are able to spawn which \textit{Nodes}.
 \end{itemize}
 
-The addition of these attributes and requirements give us this logical system:
-
 \begin{figure}[!t]
 \centering
 \includegraphics[width=3in]{Single-UM}
@@ -126,7 +124,7 @@ The addition of these attributes and requirements give us this logical system:
 \label{fig:single-um}
 \end{figure}
 
-The new system has new associations and components required to implement the degree of control required to limit the accessibility of the network stream.  We have added \textit{Cache Controllers} and \textit{Switches}, defined as:
+The addition of these attributes and requirements give us the logical system shown in Figure \ref{fig:single-um}.  The new system has new associations and components required to implement the degree of control required to limit the accessibility of the network stream.  We have added \textit{Cache Controllers} and \textit{Switches}, defined as:
 
 \begin{itemize}
 \item \textit{Cache Controllers:} Streaming network data, specifically media-centric streams, can and are cached by strategically located cache systems.  In order to control the read access of network data, we must be able to exercise explicit control over any caching systems in our infrastructure.
