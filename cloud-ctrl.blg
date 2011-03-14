@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99c (TeX Live 2009)
 The top-level auxiliary file: cloud-ctrl.aux
 The style file: IEEEtran.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
@@ -19,51 +19,47 @@ Warning--string name "december" is undefined
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty author in coral
-Warning--missing institution in coral
-Warning--empty author in marlin
-Warning--missing institution in marlin
 
 Done.
 You've used 23 entries,
             4039 wiz_defined-function locations,
-            964 strings with 11625 characters,
-and the built_in function-call counts, 17053 in all, are:
-= -- 1399
-> -- 356
+            969 strings with 11807 characters,
+and the built_in function-call counts, 17340 in all, are:
+= -- 1408
+> -- 376
 < -- 147
-+ -- 202
-- -- 56
-* -- 849
-:= -- 2583
++ -- 210
+- -- 61
+* -- 857
+:= -- 2602
 add.period$ -- 44
 call.type$ -- 23
 change.case$ -- 20
 chr.to.int$ -- 333
-cite$ -- 27
-duplicate$ -- 1243
-empty$ -- 1352
-format.name$ -- 71
-if$ -- 3918
+cite$ -- 23
+duplicate$ -- 1268
+empty$ -- 1413
+format.name$ -- 78
+if$ -- 4009
 int.to.chr$ -- 0
 int.to.str$ -- 23
-missing$ -- 219
-newline$ -- 108
-num.names$ -- 17
-pop$ -- 467
+missing$ -- 222
+newline$ -- 104
+num.names$ -- 19
+pop$ -- 485
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1315
+skip$ -- 1335
 stack$ -- 0
 substring$ -- 802
-swap$ -- 1051
+swap$ -- 1056
 text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 23
-warning$ -- 4
-while$ -- 71
+warning$ -- 0
+while$ -- 73
 width$ -- 25
-write$ -- 261
-(There were 9 warnings)
+write$ -- 257
+(There were 5 warnings)
