@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99c (TeX Live 2009)
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: cloud-ctrl.aux
 The style file: IEEEtran.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
@@ -23,15 +23,15 @@ Warning--string name "december" is undefined
 Done.
 You've used 23 entries,
             4039 wiz_defined-function locations,
-            969 strings with 11807 characters,
-and the built_in function-call counts, 17340 in all, are:
-= -- 1408
+            968 strings with 11754 characters,
+and the built_in function-call counts, 17301 in all, are:
+= -- 1402
 > -- 376
 < -- 147
 + -- 210
 - -- 61
-* -- 857
-:= -- 2602
+* -- 852
+:= -- 2588
 add.period$ -- 44
 call.type$ -- 23
 change.case$ -- 20
@@ -40,20 +40,20 @@ cite$ -- 23
 duplicate$ -- 1268
 empty$ -- 1413
 format.name$ -- 78
-if$ -- 4009
+if$ -- 4003
 int.to.chr$ -- 0
 int.to.str$ -- 23
 missing$ -- 222
-newline$ -- 104
+newline$ -- 102
 num.names$ -- 19
-pop$ -- 485
+pop$ -- 486
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1335
+skip$ -- 1332
 stack$ -- 0
 substring$ -- 802
-swap$ -- 1056
+swap$ -- 1055
 text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 5
@@ -61,5 +61,5 @@ type$ -- 23
 warning$ -- 0
 while$ -- 73
 width$ -- 25
-write$ -- 257
+write$ -- 254
 (There were 5 warnings)
