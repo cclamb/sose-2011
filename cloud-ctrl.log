@@ -1,22 +1,14 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009) (format=pdflatex 2009.11.7)  14 MAR 2011 02:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.5)  8 JUN 2011 05:41
 entering extended mode
- \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **cloud-ctrl.tex
 (./cloud-ctrl.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2009-06-19, ngerman-x-2009-06-19, ancientgreek, ibycus, ar
-abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
-h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, ku
-rmanji, latin, latvian, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, po
-lish, portuguese, romanian, russian, sanskrit, serbian, slovak, slovenian, span
-ish, swedish, turkish, ukenglish, ukrainian, uppersorbian, welsh, loaded.
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/article.cls
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2009/texmf-dist/tex/latex/base/size10.clo
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -34,35 +26,35 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 IEEE 8.5 x 11-Inch Proceedings Style `latex8.sty'.
 \@ctmp=\skip43
 \@figindent=\skip44
-) (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/times.sty
+) (/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/color.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/color.cfg
+(/etc/texmf/tex/latex/config/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \Gread@gobject=\count87
 ))
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2009/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2009/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(/etc/texmf/tex/latex/config/graphics.cfg
 File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
@@ -90,11 +82,10 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 15.
-
-(/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-(/usr/local/texlive/2009/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count88
 \scratchdimen=\dimen105
@@ -118,28 +109,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 29.
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 29.
- (/usr/local/texlive/2009/texmf-dist/tex/latex/psnfss/omsptm.fd
+ (/usr/share/texmf-texlive/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 32.
- [1{/usr/local/texlive/2009/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 7740) in paragraph at lines 55--56
+Underfull \hbox (badness 7740) in paragraph at lines 53--54
 []\OT1/ptm/m/n/10 Over the past few years mul-ti-ple service-based
  []
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
 <./images/Single-QoS.jpg, id=9, 517.935pt x 307.1475pt>
 File: ./images/Single-QoS.jpg Graphic file (type jpg)
 
 <use ./images/Single-QoS.jpg> [2]
-Underfull \hbox (badness 1270) in paragraph at lines 99--100
+Underfull \hbox (badness 1270) in paragraph at lines 97--98
 []\OT1/ptm/m/n/10 Finally, if needed the \OT1/ptm/m/it/10 Re-source Al-lo-ca-to
 r \OT1/ptm/m/n/10 will dis-
  []
@@ -151,12 +142,11 @@ File: ./images/feedback.jpg Graphic file (type jpg)
 >] <./images/Single-UM.jpg, id=18, 517.935pt x 308.15125pt>
 File: ./images/Single-UM.jpg Graphic file (type jpg)
 
-<use ./images/Single-UM.jpg>
+<use ./images/Single-UM.jpg> [4 <./images/Single-UM.jpg>]
 Underfull \hbox (badness 1005) in paragraph at lines 144--145
 \OT1/ptm/m/n/10 quality-of-service pa-ram-e-ters and a sec-ond sin-gle case
  []
 
-[4 <./images/Single-UM.jpg>]
 <./images/Multiple.jpg, id=22, 589.20125pt x 328.22626pt>
 File: ./images/Multiple.jpg Graphic file (type jpg)
 
@@ -166,60 +156,49 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 153.
  (./cloud-ctrl.bbl
-Underfull \hbox (badness 1057) in paragraph at lines 26--31
-\OT1/ptm/m/n/10 sys-tems en-gi-neer-ing and man-age-ment of
- []
-
-
-Overfull \hbox (7.75177pt too wide) in paragraph at lines 26--31
-\OT1/ptm/m/n/10 http://portal.acm.org/citation.cfm?id=1234195.1234200 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 33--35
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
 []\OT1/ptm/m/n/10 ``IEEE SMC 2005 Con-fer-ence Theme,''
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 33--35
+Underfull \hbox (badness 1281) in paragraph at lines 30--32
 \OT1/ptm/m/n/10 http://ieeesmc2005.unm.edu/SoSE[]Defn.htm, March
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--48
+Underfull \hbox (badness 10000) in paragraph at lines 41--45
 \OT1/ptm/m/n/10 http://www.research.ibm.com/wsla/WSLASpecV1-
  []
 
 [5 <./images/Multiple.jpg>]
-Underfull \hbox (badness 1270) in paragraph at lines 73--76
+Underfull \hbox (badness 1270) in paragraph at lines 70--73
 []\OT1/ptm/m/n/10 D. D. Clark, J. Wro-clawski, K. R. Sollins, and
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 123--126
+Underfull \hbox (badness 2261) in paragraph at lines 120--123
 \OT1/ptm/m/n/10 tems,'' \OT1/ptm/m/it/10 Net-work and Ser-vice Man-age-ment, IE
 EE
  []
 
 ) [6] (./cloud-ctrl.aux) ) 
 Here is how much of TeX's memory you used:
- 1114 strings out of 493848
- 14718 string characters out of 3149207
- 70976 words of memory out of 3000000
- 4399 multiletter control sequences out of 15000+200000
+ 1115 strings out of 495061
+ 14357 string characters out of 1182622
+ 69997 words of memory out of 3000000
+ 4300 multiletter control sequences out of 15000+50000
  20659 words of font info for 41 fonts, out of 3000000 for 9000
- 717 hyphenation exceptions out of 8191
- 25i,9n,23p,1690b,333s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2009/texmf-dist/fonts/enc/dvips/b
-ase/8r.enc}</usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7
-.pfb></usr/local/texlive/2009/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.p
-fb></usr/local/texlive/2009/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/l
-ocal/texlive/2009/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texli
-ve/2009/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cloud-ctrl.pdf (6 pages, 264350 bytes).
+ 31 hyphenation exceptions out of 8191
+ 25i,9n,23p,1692b,333s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc
+}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pf
+b></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-
+texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on cloud-ctrl.pdf (6 pages, 264787 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

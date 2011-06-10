@@ -22,12 +22,9 @@
 \BIBdecl
 
 \bibitem{Sose:SageCuppan:2001}
-\BIBentryALTinterwordspacing
 A.~P. Sage and C.~D. Cuppan, ``On the systems engineering and management of
   systems of systems and federations of systems,'' \emph{Inf. Knowl. Syst.
-  Manag.}, vol.~2, pp. 325--345, December 2001. [Online]. Available:
-  \url{http://portal.acm.org/citation.cfm?id=1234195.1234200}
-\BIBentrySTDinterwordspacing
+  Manag.}, vol.~2, pp. 325--345, December 2001.
 
 \bibitem{Sose:Web:Defns}
 ``{IEEE} {SMC} 2005 {C}onference {T}heme,''

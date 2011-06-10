@@ -32,12 +32,12 @@
 
 %---------------------------Title frame definition------------------------------------- 
 
-\title{Usage Management of Personal Medical Records}
-\author [Chris]{Christopher Lamb, Pramod Jamkhedkar, and Gregory Heileman}
+\title{Managed Control of Composite Cloud Systems}
+\author [Chris]{Christopher C. Lamb, Pramod A. Jamkhedkar, Gregory L. Heileman, and Chaouki T. Abdallah}
 \institute[University of New Mexico]{
 \inst {}Department of Electrical and Computer Engineering\\
 University of New Mexico}
-\date{Februrary 24, 2011}
+\date{June 10, 2011}
 \titlegraphic{
 \begin{figure} 
 \includegraphics[width = 7cm]{UNM}
@@ -52,7 +52,6 @@ University of New Mexico}
 %     \tableofcontents[currentsection,currentsubsection]
 %  \end{frame}
 %}
-
 
 \begin{document}
 
@@ -93,39 +92,59 @@ Acronyms:
 
 \end{frame}
 
-\section{Personal Medical Records}
+\section{Usage Management and Cloud Systems}
 \begin{frame}
-\frametitle{UM and PMRs}
-
-PMRs have certain attributes that aren't addressed well by current management systems:
+\frametitle{Why is this important?}
+Utility computing will certainly be the most pervasive future computing model \\
 \pause
 \begin{itemize}
-\item \textit{Mashable}
+\item \textit{Mainframes won!}
 \pause
-\item \textit{Controllable}
+\begin{itemize}
+\item Well, end devices are powerful
+\item Cloud computing pervasive for \textit{convenience}, not \textit{technical necessity}.
+\item \textit{Still resembles centralized models of the past}
+\end{itemize}
 \pause
-\item \textit{Available}
+\item \textit{People should control what they own}
+\begin{itemize}
+\item Access
+\item Retention
+\item Distribution
+\end{itemize}
+\pause \textit{Organizations should control what they pay for}
+\begin{itemize}
+\item Systems
+\item Data
+\item Records
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Problems}
+So this is what we would like to see, but problems abound
+\begin{itemize}
+\item \textit{Scalability, performance, usability, infrastructural support...}
 \end{itemize}
 \pause
 
-Usage Management of PMRs enables these things, providing fine-grained management of \textit{information contained in PMRs}
-\newline
-\pause
-
-This opens new business models:
-\pause
+Started examining automation and ability to combine service level agreements (SLAs)
 \begin{itemize}
-\item \textit{Remote Access}
-\pause
-\item \textit{Monitoring}
-\pause
-\item \textit{Custom Care}
-\pause
-\item \textit{Data Marketplace}
+\item \textit{Automation} \\
+How we can automate control and enforcement
+\item \textit{Combine} \\
+How we can combine multiple SLAs into single SLAs
 \end{itemize}
 \pause
 
-But also new \textit{risks}.
+Surprisingly difficult...
+\begin{itemize}
+\item \textit{NP-Complete} \\
+Simple generalized SLAs are equivalent to \textit{SAT}
+\item \textit{Multiple Providers} \\
+Difficult constant factors related to latency, etc.
+\end{itemize}
  
 \end{frame}
 
