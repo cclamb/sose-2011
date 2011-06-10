@@ -152,9 +152,44 @@ Difficult constant factors related to latency, etc.
 \begin{frame}
 \frametitle{Single Provider, Feedback}
 
+\begin{itemize}
+\item \textit{Performance:} We will be adjusting a system within specific soft real-time frames.  Ergo, we need to be able to collect feedback measurements, process those measurements, and make decisions about how to respond to those measurements quickly in order to avoid falling out of compliance with any performance parameters to which we must adhere.
+\item \textit{Accessibility:} In order to control component systems, we must be able to access those systems.  In order to do so within time constraints, we must be able to access those systems electronically as well; physical access requirements simply will not scale into this performance domain.
+\item \textit{Controllability:} We must be able to access the appropriate control primitives on the systems we need to tune.  This will include accessing compute node generation and termination capabilities.  It would help if we could access node performance information and tune those nodes as well, though this is not required; we can emulate this by terminating nodes in one configuration and creating nodes with another to more adequately address performance needs.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Single Provider, Feedback}
+
 \begin{figure}
 \includegraphics[width = 6cm]{Single-QoS}
 \end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Single Provider, Feedback}
+
+\begin{itemize}
+\item \textit{Cloud Controller} Provides an initial interface to administrative users to control the cloud.
+\item \textit{Cluster Controller} Managed by the cloud controller, the cluster controller manages the resources of a single cluster. A given cloud may contain multiple clusters.
+\item \textit{Storage Controller} Provides storage of system images and for other general storage needs.  This controller component is highly I/O sensitive.
+\item \textit{Node Controller} Responsible for allocating, delivering, and managing individual compute nodes upon which client software runs.
+\item \textit{Node} The compute node delivering services to end users and managed by the cluster's control infrastructure.  This is the primary computational resource accessed by users accessing managed cloud resources.
+\item \textit{Policy} Quality of service terms the cloud provider has agreed to honor for the cloud customer with respect to system delivery, provisioning, and overall performance.
+\item \textit{Resource Allocator} The component responsible for real-time tuning of the cloud system to maintain defined quality of service.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Single Provider, Feedback with UM}
+
+\begin{itemize}
+\item \textit{Accessibility:} Data streamed through the cloud system must be able to be monitored and the accessibility of that stream needs to be dynamically tunable.  This implies that we need to be able to control routing and caching of all streaming data according to user specified conditions.  This also implies that we need to be able to control exactly which \textit{Node Controllers} are able to spawn which \textit{Nodes}.
+\end{itemize}
 
 \end{frame}
 
@@ -164,6 +199,16 @@ Difficult constant factors related to latency, etc.
 \begin{figure}
 \includegraphics[width = 6.5cm]{Single-UM}
 \end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Single Provider, Feedback with UM}
+
+\begin{itemize}
+\item \textit{Cache Controllers:} Streaming network data, specifically media-centric streams, can and are cached by strategically located cache systems.  In order to control the read access of network data, we must be able to exercise explicit control over any caching systems in our infrastructure.
+\item \textit{Switch:} Really any kind of hardware that controls the delivery of network data.  This component includes switches and routers primarily.  In order to control how data is accessed we must be able to control the locations to which it is delivered.
+\end{itemize}
 
 \end{frame}
 
